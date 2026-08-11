@@ -25,6 +25,7 @@
 "f4_proj1\stm32f4xx_hal.o"
 "f4_proj1\stm32f4xx_hal_exti.o"
 "f4_proj1\exti_irqhandler.o"
+"f4_proj1\tim_irqhanderler.o"
 --strict --scatter "F4_proj1\F4_proj1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

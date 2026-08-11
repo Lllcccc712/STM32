@@ -1425,6 +1425,11 @@
               <FileType>1</FileType>
               <FilePath>..\IRQ\Src\EXTI_IRQHandler.c</FilePath>
             </File>
+            <File>
+              <FileName>TIM_IRQHanderler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IRQ\Src\TIM_IRQHanderler.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

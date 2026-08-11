@@ -523,7 +523,7 @@
 
   <Group>
     <GroupName>IRQ</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -536,6 +536,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\IRQ\Src\EXTI_IRQHandler.c</PathWithFileName>
       <FilenameWithoutPath>EXTI_IRQHandler.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>27</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\IRQ\Src\TIM_IRQHanderler.c</PathWithFileName>
+      <FilenameWithoutPath>TIM_IRQHanderler.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
