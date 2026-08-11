@@ -27,18 +27,87 @@ Project File Date:  08/11/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'F:\Keil\ARM\ARMCLANG\Bin'
 Build target 'F4_proj1'
-../Core/Src/main.c(90): warning: implicit declaration of function 'Beep_Init' is invalid in C99 [-Wimplicit-function-declaration]
+compiling stm32f4xx_hal_msp.c...
+compiling gpio.c...
+compiling stm32f4xx_hal_timebase_tim.c...
+../Core/Src/main.c(22): warning: In file included from...
+../IRQ/Inc\EXTI_IRQHandler.h(6): error: unknown type name 'estern'; did you mean 'extern'?
+estern volatile uint8_t Beep_Trigger = 0;
+^~~~~~
+extern
+../IRQ/Inc\EXTI_IRQHandler.h(6): warning: 'extern' variable has an initializer [-Wextern-initializer]
+estern volatile uint8_t Beep_Trigger = 0;
+                        ^
+../Core/Src/main.c(91): warning: implicit declaration of function 'Beep_Init' is invalid in C99 [-Wimplicit-function-declaration]
   Beep_Init();
   ^
-../Core/Src/main.c(97): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
+../Core/Src/main.c(98): warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        if(Beep_Trigger = 1;)
+           ~~~~~~~~~~~~~^~~
+../Core/Src/main.c(98): note: place parentheses around the assignment to silence this warning
+        if(Beep_Trigger = 1;)
+                        ^
+           (               )
+../Core/Src/main.c(98): note: use '==' to turn this assignment into an equality comparison
+        if(Beep_Trigger = 1;)
+                        ^
+                        ==
+../Core/Src/main.c(98): error: unexpected ';' before ')'
+        if(Beep_Trigger = 1;)
+                           ^
+../Core/Src/main.c(100): warning: implicit declaration of function 'BEEP_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
+      BEEP_Alarm(3);
+      ^
+../Core/Src/main.c(103): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
     led_Water();
     ^
-2 warnings generated.
+5 warnings and 2 errors generated.
 compiling main.c...
-linking...
-Program Size: Code=7378 RO-data=450 RW-data=12 ZI-data=3252  
-FromELF: creating hex file...
-"F4_proj1\F4_proj1.axf" - 0 Error(s), 2 Warning(s).
+compiling beep.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling led.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal_flash.c...
+compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_exti.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_dma.c...
+../IRQ/Src/EXTI_IRQHandler.c(1): warning: In file included from...
+../IRQ/Inc\EXTI_IRQHandler.h(6): error: unknown type name 'estern'; did you mean 'extern'?
+estern volatile uint8_t Beep_Trigger = 0;
+^~~~~~
+extern
+../IRQ/Inc\EXTI_IRQHandler.h(6): warning: 'extern' variable has an initializer [-Wextern-initializer]
+estern volatile uint8_t Beep_Trigger = 0;
+                        ^
+../IRQ/Src/EXTI_IRQHandler.c(3): error: redefinition of 'Beep_Trigger'
+volatile uint8_t Beep_Trigger = 0;
+                 ^
+../IRQ/Inc\EXTI_IRQHandler.h(6): note: previous definition is here
+estern volatile uint8_t Beep_Trigger = 0;
+                        ^
+../IRQ/Src/EXTI_IRQHandler.c(7): error: use of undeclared identifier 'INPUT_'
+    if(GPIO_Pin == INPUT_!_PIN)
+                   ^
+../IRQ/Src/EXTI_IRQHandler.c(7): error: expected ')'
+    if(GPIO_Pin == INPUT_!_PIN)
+                         ^
+../IRQ/Src/EXTI_IRQHandler.c(7): note: to match this '('
+    if(GPIO_Pin == INPUT_!_PIN)
+      ^
+1 warning and 4 errors generated.
+compiling EXTI_IRQHandler.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_tim_ex.c...
+compiling stm32f4xx_it.c...
+compiling stm32f4xx_hal_flash_ex.c...
+"F4_proj1\F4_proj1.axf" - 6 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,6 +130,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

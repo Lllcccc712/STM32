@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
+#include "EXTI_IRQHandler.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -94,6 +95,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+        if(Beep_Trigger = 1;)
+    {
+      BEEP_Alarm(3);
+      Beep_Trigger = 0;
+    }
     led_Water();
     pin_state = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
     /* USER CODE END WHILE */

@@ -1,5 +1,5 @@
-f4_proj1/stm32f4xx_hal_flash_ex.o: \
-  C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ex.c \
+f4_proj1/exti_irqhandler.o: ..\IRQ\Src\EXTI_IRQHandler.c \
+  ..\IRQ\Inc\EXTI_IRQHandler.h ..\Core\Inc\main.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
