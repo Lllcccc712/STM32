@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdint.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -67,6 +67,9 @@ void Error_Handler(void);
 #define LED_4_GPIO_Port GPIOA
 #define BEEP_Pin GPIO_PIN_8
 #define BEEP_GPIO_Port GPIOA
+#define INPUT_1_Pin GPIO_PIN_10
+#define INPUT_1_GPIO_Port GPIOC
+#define INPUT_1_EXTI_IRQn EXTI15_10_IRQn
 
 /* USER CODE BEGIN Private defines */
 
