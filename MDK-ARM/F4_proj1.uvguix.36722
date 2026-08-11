@@ -1910,9 +1910,9 @@
       </Doc>
       <Doc>
         <Name>C:/Users/36722/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.3/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c</Name>
-        <ColumnNumber>3</ColumnNumber>
+        <ColumnNumber>4</ColumnNumber>
         <TopLine>491</TopLine>
-        <CurrentLine>526</CurrentLine>
+        <CurrentLine>528</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

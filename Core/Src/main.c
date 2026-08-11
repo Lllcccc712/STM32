@@ -97,7 +97,7 @@ int main(void)
   {
         if(Beep_Trigger == 1)
     {
-      BEEP_Alarm(3);
+      Beep_Alarm(3);
       Beep_Trigger = 0;
     }
     led_Water();
