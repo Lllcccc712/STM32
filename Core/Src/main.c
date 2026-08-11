@@ -30,6 +30,11 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 uint8_t pin_state = 0;
+typedef enum {
+   IDLE,    // 全灭
+   WATER,   // 流水灯
+   BREATH   // 呼吸灯
+} State;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -67,7 +72,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  volatile uint32_t down_time = 0;      // 记录按下时刻
+  volatile uint8_t last_state = 0;      // 记录上次是按还是松
+  State current_state = IDLE;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -98,19 +105,58 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-        if(Beep_Trigger == 1)
+    static uint32_t dur = 0; // 按下的时长
+    uint8_t current_state = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
+
+
+    if (current_state == GPIO_PIN_SET && last_state == GPIO_PIN_RESET)   // 按下
     {
-      Beep_Alarm(3);
-      Beep_Trigger = 0;
+        down_time = HAL_GetTick();   
     }
-    led_Water();
-    pin_state = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
+
+    else if (current_state == GPIO_PIN_RESET && last_state == GPIO_PIN_SET)   // 松开
+    {
+        dur = HAL_GetTick() - down_time;
+        if((dur > 50) && (dur < 500) )
+        {
+        // 判断为短按
+        current_state = WATER;
+        Beep_Alarm(1);
+        HAL_TIM_Base_Stop_IT(&htim2);
+      }
+
+      else if(dur >= 500)
+      {
+        current_state = BREATH;
+        Beep_Alarm(1);
+        HAL_TIM_Base_Start_IT(&htim2);
+      }
+    }
+    last_state = current_state;   // 更新上一次状态
+        if(current_state == IDLE)
+    {
+      LED_OFF(1);
+      LED_OFF(2);
+      LED_OFF(3);
+      LED_OFF(4);
+    }
+    else if(current_state == WATER)
+    {
+      led_Water();
+    }
+    else if(current_state == BREATH)
+    {
+
+    }
+  }
+
+      
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
+
 
 /**
   * @brief System Clock Configuration

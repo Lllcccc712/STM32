@@ -27,16 +27,41 @@ Project File Date:  08/11/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'F:\Keil\ARM\ARMCLANG\Bin'
 Build target 'F4_proj1'
-compiling TIM_IRQHanderler.c...
+compiling led.c...
+../Core/Src/main.c(96): warning: implicit declaration of function 'Beep_Init' is invalid in C99 [-Wimplicit-function-declaration]
+  Beep_Init();
+  ^
+../Core/Src/main.c(103): warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    static  dur = 0; // 按下的时长
+    ~~~~~~  ^
+../Core/Src/main.c(130): warning: implicit declaration of function 'Beep_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
+        Beep_Alarm(1);
+        ^
+../Core/Src/main.c(131): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
+        led_Water();
+        ^
+../Core/Src/main.c(136): warning: implicit declaration of function 'Beep_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
+        Beep_Alarm(1);
+        ^
+../Core/Src/main.c(142): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
+    led_Water();
+    ^
+../Core/Src/main.c(218): warning: implicit declaration of function 'TIM_PeriodElapsedCallback' is invalid in C99 [-Wimplicit-function-declaration]
+  TIM_PeriodElapsedCallback(htim);
+  ^
+7 warnings generated.
+compiling main.c...
 ../Core/Src/tim.c(68): warning: expression result unused [-Wunused-value]
       Error_Handler;
       ^~~~~~~~~~~~~
 1 warning generated.
 compiling tim.c...
+compiling TIM_IRQHanderler.c...
+compiling beep.c...
 linking...
-Program Size: Code=11368 RO-data=448 RW-data=12 ZI-data=3404  
+Program Size: Code=11524 RO-data=448 RW-data=12 ZI-data=3404  
 FromELF: creating hex file...
-"F4_proj1\F4_proj1.axf" - 0 Error(s), 1 Warning(s).
+"F4_proj1\F4_proj1.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
