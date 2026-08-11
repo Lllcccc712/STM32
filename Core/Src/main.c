@@ -135,10 +135,7 @@ int main(void)
     last_state = current_state;   // 更新上一次状态
         if(current_state == IDLE)
     {
-      LED_OFF(1);
-      LED_OFF(2);
-      LED_OFF(3);
-      LED_OFF(4);
+      led_off_all();
     }
     else if(current_state == WATER)
     {
