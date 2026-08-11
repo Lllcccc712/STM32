@@ -1,4 +1,4 @@
-f4_proj1/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
+f4_proj1/tim.o: ..\Core\Src\tim.c ..\Core\Inc\tim.h ..\Core\Inc\main.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -27,5 +27,4 @@ f4_proj1/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
   C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
-  C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\gpio.h ..\IRQ\Inc\EXTI_IRQHandler.h
+  C:\Users\36722\STM32Cube\Repository\STM32Cube_FW_F4_V1.28.3\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
