@@ -95,7 +95,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-        if(Beep_Trigger = 1;)
+        if(Beep_Trigger == 1)
     {
       BEEP_Alarm(3);
       Beep_Trigger = 0;
