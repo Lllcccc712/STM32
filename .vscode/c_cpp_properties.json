@@ -8,9 +8,11 @@
                 "f:\\STM32\\F4_proj1\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
                 "f:\\STM32\\F4_proj1\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
                 "f:\\STM32\\F4_proj1\\Drivers\\CMSIS\\Include",
+                "f:\\STM32\\F4_proj1\\HDL\\Inc",
                 "f:\\STM32\\F4_proj1\\MDK-ARM",
                 "f:\\STM32\\F4_proj1\\Core\\Src",
                 "f:\\STM32\\F4_proj1\\Drivers\\STM32F4xx_HAL_Driver\\Src",
+                "f:\\STM32\\F4_proj1\\HDL\\Src",
                 "${default}"
             ],
             "defines": [

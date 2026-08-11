@@ -1,0 +1,15 @@
+#ifndef LED_H
+#define LED_H
+
+/*------------------------------------include---------------------------------*/
+#include "main.h"
+#include "gpio.h"
+
+/*------------------------------------define---------------------------------*/
+#define LED_ON(x) HAL_GPIO_WritePin(LED_##x##_GPIO_Port, LED_##x##_Pin, GPIO_PIN_SET)
+#define LED_OFF(x) HAL_GPIO_WritePin(LED_##x##_GPIO_Port, LED_##x##_Pin, GPIO_PIN_RESET)
+#define LED_TOGGLE(x) HAL_GPIO_TooglePin(LED_##x##_GPIO_Port, LED_##x##_Pin)
+
+/*------------------------------------function---------------------------------*/
+void led_Water(void);
+#endif /* LED_H*/
