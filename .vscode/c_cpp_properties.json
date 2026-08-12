@@ -5,16 +5,16 @@
             "includePath": [
                 "f:\\STM32\\F4_proj1\\Core\\Inc",
                 "f:\\STM32\\F4_proj1\\HDL\\Inc",
-                "C:\\Users\\36722\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.28.3\\Drivers\\STM32F4xx_HAL_Driver\\Inc",
-                "C:\\Users\\36722\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.28.3\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
-                "C:\\Users\\36722\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.28.3\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
-                "C:\\Users\\36722\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.28.3\\Drivers\\CMSIS\\Include",
                 "f:\\STM32\\F4_proj1\\IRQ\\Inc",
+                "f:\\STM32\\F4_proj1\\Drivers\\STM32F4xx_HAL_Driver\\Inc",
+                "f:\\STM32\\F4_proj1\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
+                "f:\\STM32\\F4_proj1\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
+                "f:\\STM32\\F4_proj1\\Drivers\\CMSIS\\Include",
                 "f:\\STM32\\F4_proj1\\MDK-ARM",
                 "f:\\STM32\\F4_proj1\\Core\\Src",
                 "f:\\STM32\\F4_proj1\\HDL\\Src",
-                "C:\\Users\\36722\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.28.3\\Drivers\\STM32F4xx_HAL_Driver\\Src",
                 "f:\\STM32\\F4_proj1\\IRQ\\Src",
+                "f:\\STM32\\F4_proj1\\Drivers\\STM32F4xx_HAL_Driver\\Src",
                 "${default}"
             ],
             "defines": [

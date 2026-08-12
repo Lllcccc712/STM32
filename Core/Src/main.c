@@ -18,26 +18,23 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "led.h"
+#include "beep.h"
+#include "EXTI_IRQHandler.h"
+#include "TIM_IRQHandler.h"
+#include "UART_IRQHandler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-uint8_t pin_state = 0;
-typedef enum
-{
-  STOP,  // 无操作
-  IDLE,  // 待机
-  WATER, // 流水灯
-  BREATH // 呼吸灯
-} State;
-volatile uint32_t down_time = 0;
-volatile uint8_t last_state = GPIO_PIN_RESET;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -75,7 +72,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  State current_state = STOP;
 
   /* USER CODE END 1 */
 
@@ -97,87 +93,24 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   Beep_Init();
+  UART_Start_Recieve();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    static uint32_t dur = 0; // 按下的时长
-    uint8_t pin_level = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
-
-    if (pin_level == GPIO_PIN_SET && last_state == GPIO_PIN_RESET) // 按下
-    {
-      down_time = HAL_GetTick();
-    }
-
-    else if (pin_level == GPIO_PIN_RESET && last_state == GPIO_PIN_SET) // 松开
-    {
-      dur = HAL_GetTick() - down_time;
-
-      if (dur >= 2000)
-      {
-        led_off_all(); // 待机
-        current_state = IDLE;
-      }
-
-      else if(dur <= 50)
-      {
-        continue;
-      }
-
-      else if ((dur > 50) && (dur < 2000))
-      {
-        // 判断为短按
-        if (current_state == IDLE)
-        {
-          current_state = WATER;
-          HAL_TIM_Base_Stop_IT(&htim2);
-        }
-
-        else if (current_state == BREATH)
-        {
-          __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
-          __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
-          current_state = WATER;
-          HAL_TIM_Base_Stop_IT(&htim2);
-        }
-
-        else if (current_state == WATER)
-        {
-          current_state = BREATH;
-          HAL_TIM_Base_Start_IT(&htim2);
-        }
-
-        Beep_Alarm(1);
-        dur = 0;
-      }
-    }
-		
-		
-    last_state = pin_level; // 更新上一次状态
-		
-    if (current_state == IDLE)
-    {
-      led_off_all();
-    }
-		
-    else if (current_state == WATER)
-    {
-      led_Water();
-    }
-		
-    else if (current_state == BREATH)
-    {
-			HAL_TIM_Base_Start_IT(&htim2);
-    }
-		
-		
-
+    if(Beep_Trigger !=0)
+ {
+   Beep_Alarm(Beep_Trigger);
+   Beep_Trigger = 0;
+ }
   }
 
     /* USER CODE END WHILE */
