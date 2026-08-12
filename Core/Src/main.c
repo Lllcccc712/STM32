@@ -21,6 +21,7 @@
 #include "tim.h"
 #include "gpio.h"
 #include "EXTI_IRQHandler.h"
+#include "beep.c"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -106,15 +107,15 @@ int main(void)
   while (1)
   {
     static uint32_t dur = 0; // 按下的时长
-    uint8_t current_state = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
+    uint8_t pin_level = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
 
 
-    if (current_state == GPIO_PIN_SET && last_state == GPIO_PIN_RESET)   // 按下
+    if (pin_level == GPIO_PIN_SET && last_state == GPIO_PIN_RESET)   // 按下
     {
         down_time = HAL_GetTick();   
     }
 
-    else if (current_state == GPIO_PIN_RESET && last_state == GPIO_PIN_SET)   // 松开
+    else if (pin_level == GPIO_PIN_RESET && last_state == GPIO_PIN_SET)   // 松开
     {
         dur = HAL_GetTick() - down_time;
         if((dur > 50) && (dur < 500) )
@@ -132,7 +133,7 @@ int main(void)
         HAL_TIM_Base_Start_IT(&htim2);
       }
     }
-    last_state = current_state;   // 更新上一次状态
+    last_state = pin_level;   // 更新上一次状态
         if(current_state == IDLE)
     {
       led_off_all();
