@@ -27,43 +27,7 @@ Project File Date:  08/12/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'F:\Keil\ARM\ARMCLANG\Bin'
 Build target 'F4_proj1'
-compiling EXTI_IRQHandler.c...
-compiling TIM_IRQHanderler.c...
-compiling stm32f4xx_it.c...
-../Core/Src/main.c(101): warning: implicit declaration of function 'Beep_Init' is invalid in C99 [-Wimplicit-function-declaration]
-  Beep_Init();
-  ^
-../Core/Src/main.c(124): warning: implicit declaration of function 'Beep_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
-        Beep_Alarm(1);
-        ^
-../Core/Src/main.c(131): warning: implicit declaration of function 'Beep_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
-        Beep_Alarm(1);
-        ^
-../Core/Src/main.c(138): warning: implicit declaration of function 'led_off_all' is invalid in C99 [-Wimplicit-function-declaration]
-      led_off_all();
-      ^
-../Core/Src/main.c(142): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
-      led_Water();
-      ^
-../Core/Src/main.c(154): error: extraneous closing brace ('}')
-}
-^
-../Core/Src/main.c(223): warning: implicit declaration of function 'TIM_PeriodElapsedCallback' is invalid in C99 [-Wimplicit-function-declaration]
-  TIM_PeriodElapsedCallback(htim);
-  ^
-6 warnings and 1 error generated.
-compiling main.c...
-compiling beep.c...
-../Core/Src/tim.c(68): warning: expression result unused [-Wunused-value]
-      Error_Handler;
-      ^~~~~~~~~~~~~
-1 warning generated.
-compiling tim.c...
-compiling stm32f4xx_hal_msp.c...
-compiling led.c...
-compiling gpio.c...
-assembling startup_stm32f405xx.s...
-"F4_proj1\F4_proj1.axf" - 1 Error(s), 7 Warning(s).
+"F4_proj1\F4_proj1.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -86,7 +50,6 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
