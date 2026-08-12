@@ -27,6 +27,7 @@ Project File Date:  08/11/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'F:\Keil\ARM\ARMCLANG\Bin'
 Build target 'F4_proj1'
+compiling led.c...
 ../Core/Src/main.c(101): warning: implicit declaration of function 'Beep_Init' is invalid in C99 [-Wimplicit-function-declaration]
   Beep_Init();
   ^
@@ -36,28 +37,21 @@ Build target 'F4_proj1'
 ../Core/Src/main.c(131): warning: implicit declaration of function 'Beep_Alarm' is invalid in C99 [-Wimplicit-function-declaration]
         Beep_Alarm(1);
         ^
-../Core/Src/main.c(138): warning: implicit declaration of function 'LED_OFF' is invalid in C99 [-Wimplicit-function-declaration]
-      LED_OFF(1);
+../Core/Src/main.c(138): warning: implicit declaration of function 'led_off_all' is invalid in C99 [-Wimplicit-function-declaration]
+      led_off_all();
       ^
-../Core/Src/main.c(145): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
+../Core/Src/main.c(142): warning: implicit declaration of function 'led_Water' is invalid in C99 [-Wimplicit-function-declaration]
       led_Water();
       ^
-../Core/Src/main.c(228): warning: implicit declaration of function 'TIM_PeriodElapsedCallback' is invalid in C99 [-Wimplicit-function-declaration]
+../Core/Src/main.c(225): warning: implicit declaration of function 'TIM_PeriodElapsedCallback' is invalid in C99 [-Wimplicit-function-declaration]
   TIM_PeriodElapsedCallback(htim);
   ^
 6 warnings generated.
 compiling main.c...
-../Core/Src/tim.c(68): warning: expression result unused [-Wunused-value]
-      Error_Handler;
-      ^~~~~~~~~~~~~
-1 warning generated.
-compiling tim.c...
 linking...
-F4_proj1\F4_proj1.axf: Error: L6218E: Undefined symbol LED_OFF (referred from main.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-"F4_proj1\F4_proj1.axf" - 1 Error(s), 7 Warning(s).
+Program Size: Code=11698 RO-data=450 RW-data=12 ZI-data=3404  
+FromELF: creating hex file...
+"F4_proj1\F4_proj1.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -80,8 +74,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
