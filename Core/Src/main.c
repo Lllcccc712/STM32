@@ -121,30 +121,32 @@ int main(void)
       if ((dur > 50) && (dur < 500))
       {
         // 判断为短按
-        if (current_state = IDLE)
+        if (current_state == IDLE)
         {
           current_state = WATER;
-          Beep_Alarm(1);
           HAL_TIM_Base_Stop_IT(&htim2);
         }
-        if(current_state = BREATH)
+
+        else if(current_state == BREATH)
         {
           current_state = WATER;
-          Beep_Alarm(1);
           HAL_TIM_Base_Stop_IT(&htim2);
         }
-      }
-      if(current_state = WATER)
+
+        else if(current_state == WATER)
       {
           current_state = BREATH;
-          Beep_Alarm(1);
           HAL_TIM_Base_Stop_IT(&htim2);
       }
+        Beep_Alarm(1);
+      }
+      
 
       else if (dur >= 500)
       {
         led_off_all(); // 待机
       }
+      Beep_Alarm(1);
     }
     last_state = pin_level; // 更新上一次状态
     if (current_state == IDLE)
