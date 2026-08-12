@@ -1,27 +1,25 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "tim.h"
 #include "gpio.h"
-#include "EXTI_IRQHandler.h"
-#include "beep.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -31,10 +29,11 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 uint8_t pin_state = 0;
-typedef enum {
-   IDLE,    // 全灭
-   WATER,   // 流水灯
-   BREATH   // 呼吸灯
+typedef enum
+{
+  IDLE,  // 全灭
+  WATER, // 流水灯
+  BREATH // 呼吸灯
 } State;
 /* USER CODE END PTD */
 
@@ -73,8 +72,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  volatile uint32_t down_time = 0;      // 记录按下时刻
-  volatile uint8_t last_state = 0;      // 记录上次是按还是松
+  volatile uint32_t down_time = 0; // 记录按下时刻
+  volatile uint8_t last_state = 0; // 记录上次是按还是松
   State current_state = IDLE;
   /* USER CODE END 1 */
 
@@ -109,50 +108,48 @@ int main(void)
     static uint32_t dur = 0; // 按下的时长
     uint8_t pin_level = HAL_GPIO_ReadPin(INPUT_1_GPIO_Port, INPUT_1_Pin);
 
-
-    if (pin_level == GPIO_PIN_SET && last_state == GPIO_PIN_RESET)   // 按下
+    if (pin_level == GPIO_PIN_SET && last_state == GPIO_PIN_RESET) // 按下
     {
-        down_time = HAL_GetTick();   
+      down_time = HAL_GetTick();
     }
 
-    else if (pin_level == GPIO_PIN_RESET && last_state == GPIO_PIN_SET)   // 松开
+    else if (pin_level == GPIO_PIN_RESET && last_state == GPIO_PIN_SET) // 松开
     {
-        dur = HAL_GetTick() - down_time;
-        if((dur > 50) && (dur < 500) )
-        {
+      dur = HAL_GetTick() - down_time;
+
+      if ((dur > 50) && (dur < 500))
+      {
         // 判断为短按
         current_state = WATER;
         Beep_Alarm(1);
         HAL_TIM_Base_Stop_IT(&htim2);
       }
 
-      else if(dur >= 500)
+      else if (dur >= 500)
       {
         current_state = BREATH;
         Beep_Alarm(1);
         HAL_TIM_Base_Start_IT(&htim2);
       }
     }
-    last_state = pin_level;   // 更新上一次状态
-        if(current_state == IDLE)
+    last_state = pin_level; // 更新上一次状态
+    if (current_state == IDLE)
     {
       led_off_all();
     }
-    else if(current_state == WATER)
+    else if (current_state == WATER)
     {
       led_Water();
     }
-    else if(current_state == BREATH)
+    else if (current_state == BREATH)
     {
-
     }
   }
 
-      
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+}
   /* USER CODE END 3 */
 
 
