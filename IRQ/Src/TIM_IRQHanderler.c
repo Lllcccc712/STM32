@@ -1,8 +1,8 @@
 #include "TIM_IRQHandler.h"
 
 
-uint16_t tim_count = 0;
-static uint8_t dir = 0;
+static uint16_t tim_count = 0;
+static uint8_t dir = 1;
 uint16_t time = 0;
 
 void TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)   // 呼吸灯
