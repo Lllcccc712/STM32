@@ -117,37 +117,39 @@ int main(void)
     else if (pin_level == GPIO_PIN_RESET && last_state == GPIO_PIN_SET) // 松开
     {
       dur = HAL_GetTick() - down_time;
+    }
 
-      if ((dur > 50) && (dur < 500))
+    if (dur >= 500)
+    {
+      led_off_all(); // 待机
+      current_state = IDLE;
+    }
+
+    else if ((dur > 50) && (dur < 500))
+    {
+      // 判断为短按
+      if (current_state == IDLE)
       {
-        // 判断为短按
-        if (current_state == IDLE)
-        {
-          current_state = WATER;
-          HAL_TIM_Base_Stop_IT(&htim2);
-        }
-
-        else if(current_state == BREATH)
-        {
-          current_state = WATER;
-          HAL_TIM_Base_Stop_IT(&htim2);
-        }
-
-        else if(current_state == WATER)
-      {
-          current_state = BREATH;
-          HAL_TIM_Base_Stop_IT(&htim2);
-      }
+        current_state = WATER;
+        HAL_TIM_Base_Stop_IT(&htim2);
         Beep_Alarm(1);
       }
-      
 
-      else if (dur >= 500)
+      else if (current_state == BREATH)
       {
-        led_off_all(); // 待机
+        current_state = WATER;
+        HAL_TIM_Base_Stop_IT(&htim2);
+        Beep_Alarm(1);
       }
-      Beep_Alarm(1);
+
+      else if (current_state == WATER)
+      {
+        current_state = BREATH;
+        HAL_TIM_Base_Stop_IT(&htim2);
+        Beep_Alarm(1);
+      }
     }
+
     last_state = pin_level; // 更新上一次状态
     if (current_state == IDLE)
     {
