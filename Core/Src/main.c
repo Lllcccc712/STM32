@@ -21,7 +21,7 @@
 #include "tim.h"
 #include "gpio.h"
 #include "EXTI_IRQHandler.h"
-#include "beep.c"
+#include "beep.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
