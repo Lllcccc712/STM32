@@ -32,4 +32,5 @@ f4_proj1/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Core\Inc\dma.h ..\Core\Inc\tim.h ..\Core\Inc\usart.h \
   ..\Core\Inc\gpio.h ..\HDL\Inc\led.h ..\HDL\Inc\beep.h \
   ..\IRQ\Inc\EXTI_IRQHandler.h ..\IRQ\Inc\TIM_IRQHandler.h \
-  ..\IRQ\Inc\UART_IRQHandler.h
+  ..\IRQ\Inc\UART_IRQHandler.h \
+  F:\Keil\ARM\ARMCLANG\Bin\..\include\string.h
