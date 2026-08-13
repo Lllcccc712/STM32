@@ -51,7 +51,6 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-void UART_Send_Sin_Data(float sin_value);
 
 /* USER CODE BEGIN EFP */
 

@@ -21,6 +21,7 @@ f4_proj1/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_can.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h \
@@ -29,8 +30,8 @@ f4_proj1/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\dma.h ..\Core\Inc\tim.h ..\Core\Inc\usart.h \
-  ..\Core\Inc\gpio.h ..\HDL\Inc\led.h ..\HDL\Inc\beep.h \
-  ..\IRQ\Inc\EXTI_IRQHandler.h ..\IRQ\Inc\TIM_IRQHandler.h \
-  ..\IRQ\Inc\UART_IRQHandler.h \
+  ..\Core\Inc\can.h ..\Core\Inc\dma.h ..\Core\Inc\tim.h \
+  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h ..\HDL\Inc\led.h \
+  ..\HDL\Inc\beep.h ..\IRQ\Inc\EXTI_IRQHandler.h \
+  ..\IRQ\Inc\TIM_IRQHandler.h ..\IRQ\Inc\UART_IRQHandler.h \
   F:\Keil\ARM\ARMCLANG\Bin\..\include\string.h
