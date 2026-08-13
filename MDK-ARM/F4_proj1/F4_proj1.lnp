@@ -2,6 +2,7 @@
 "f4_proj1\startup_stm32f405xx.o"
 "f4_proj1\main.o"
 "f4_proj1\gpio.o"
+"f4_proj1\dma.o"
 "f4_proj1\tim.o"
 "f4_proj1\usart.o"
 "f4_proj1\stm32f4xx_it.o"

@@ -30,4 +30,5 @@ f4_proj1/uart_irqhandler.o: ..\IRQ\Src\UART_IRQHandler.c \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\IRQ\Inc\EXTI_IRQHandler.h
+  ..\Core\Inc\usart.h ..\IRQ\Inc\EXTI_IRQHandler.h \
+  F:\Keil\ARM\ARMCLANG\Bin\..\include\string.h

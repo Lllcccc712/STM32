@@ -22,26 +22,24 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 F:\STM32\F4_proj1\MDK-ARM\F4_proj1.uvprojx
-Project File Date:  08/12/2026
+Project File Date:  08/13/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'F:\Keil\ARM\ARMCLANG\Bin'
 Build target 'F4_proj1'
-../IRQ/Src/UART_IRQHandler.c(20): warning: comparison between pointer and integer ('uint8_t *' (aka 'unsigned char *') and 'int') [-Wpointer-integer-compare]
-        if (rx_buffer == 0xFF)
-            ~~~~~~~~~ ^  ~~~~
-../IRQ/Src/UART_IRQHandler.c(36): error: conflicting types for 'HAL_UARTEx_ReceiveToIdle_IT'
-void HAL_UARTEx_ReceiveToIdle_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
-     ^
-../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h(757): note: previous declaration is here
-HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-                  ^
-../IRQ/Src/UART_IRQHandler.c(40): warning: comparison between pointer and integer ('uint8_t *' (aka 'unsigned char *') and 'int') [-Wpointer-integer-compare]
-        if (rx_buffer == 0xAA)
-            ~~~~~~~~~ ^  ~~~~
-2 warnings and 1 error generated.
-compiling UART_IRQHandler.c...
-"F4_proj1\F4_proj1.axf" - 1 Error(s), 2 Warning(s).
+compiling dma.c...
+compiling usart.c...
+../Core/Src/main.c(190): warning: implicit declaration of function 'TIM_PeriodElapsedCallback' is invalid in C99 [-Wimplicit-function-declaration]
+  TIM_PeriodElapsedCallback(htim);
+  ^
+1 warning generated.
+compiling main.c...
+compiling stm32f4xx_it.c...
+assembling startup_stm32f405xx.s...
+linking...
+Program Size: Code=16200 RO-data=456 RW-data=12 ZI-data=3668  
+FromELF: creating hex file...
+"F4_proj1\F4_proj1.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -64,7 +62,6 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

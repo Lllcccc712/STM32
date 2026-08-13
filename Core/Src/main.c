@@ -72,7 +72,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  UART_Start_Recieve();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -106,11 +106,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    if(Beep_Trigger !=0)
- {
-   Beep_Alarm(Beep_Trigger);
-   Beep_Trigger = 0;
- }
+    if (Beep_Trigger != 0)
+    {
+      Beep_Alarm(Beep_Trigger);
+      Beep_Trigger = 0;
+    }
   }
 
     /* USER CODE END WHILE */
