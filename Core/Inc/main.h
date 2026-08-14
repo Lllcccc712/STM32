@@ -36,7 +36,15 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef enum 
+{
+  IDLE,
+  BUZZER,
+  LED_WATER
+} Mode;
+extern Mode State;
+extern uint8_t led_flag;
+extern uint8_t current_led;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

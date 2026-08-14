@@ -2,8 +2,27 @@
 
 CAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
+extern Mode State;
+extern uint8_t led_flag;
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+// 用来回复CAN消息的函数
+// 参数：hcan, 回复ID, 数据指针, 数据长度
+void CAN_Send_Response(CAN_HandleTypeDef *hcan, uint32_t resp_id, uint8_t *data, uint8_t len)
+{
+    CAN_TxHeaderTypeDef TxHeader;
+    uint32_t TxMailBox;
+
+    TxHeader.StdId = 0;        
+    TxHeader.ExtId = resp_id;    // 把要回复的ID传进来
+    TxHeader.IDE = CAN_ID_EXT;   // 扩展帧
+    TxHeader.RTR = CAN_RTR_DATA; // 数据帧
+    TxHeader.DLC = len;          // 数据长度
+    TxHeader.TransmitGlobalTime = DISABLE;
+
+    HAL_CAN_AddTxMessage(hcan, &TxHeader, data, &TxMailBox);
+}
+
+/*void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     // 确保是CAN1触发的中断
     if(hcan->Instance == CAN1)
@@ -39,6 +58,30 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         if(HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
             // 处理CAN2的消息
+        }
+    }
+}*/
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    if (hcan->Instance == CAN1)
+    {
+        if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+        {
+            // 判断扩展帧
+            if (RxHeader.IDE == CAN_ID_EXT)
+            {
+                if (RxHeader.ExtId == 0x01020101)
+                {
+                    Beep_Trigger = RxData[0];
+                    State = BUZZER;
+                }
+                else if (RxHeader.ExtId == 0x01020201)
+                {
+                    led_flag = RxData[0];
+                    State = LED_WATER;
+                }
+            }
         }
     }
 }

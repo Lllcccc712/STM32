@@ -2,7 +2,7 @@
 #include "EXTI_IRQHandler.h"
 
 
-uint8_t rx_buffer[100] = {0};
+uint8_t rx_buffer[256] = {0};
 uint8_t tx_buffer[100] = {0};
 uint8_t vofa_tail[4] = {0x00, 0x00, 0x80, 0x7F};
 float sin_value = 3.14;
@@ -12,9 +12,9 @@ float sin_value = 3.14;
 void UART_Start_Recieve(void) // 开启接受
 {
     // HAL_UART_Receive_IT(&huart1, rx_buffer, 5);   // 收到消息进下面的中断回调,定长接收，每收5个字节触发一次中断
-    // HAL_UARTEx_ReceiveToIdle_IT(&huart1, rx_buffer, sizeof(rx_buffer));
+    HAL_UARTEx_ReceiveToIdle_IT(&huart1, rx_buffer, sizeof(rx_buffer));
     // HAL_UART_Receive_DMA(&huart1, rx_buffer, 5);
-     HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx_buffer, sizeof(rx_buffer));
+    // HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx_buffer, sizeof(rx_buffer));
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) // 定长中断回调
